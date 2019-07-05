@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<body>
+
+    <script type="text/javascript">
+        function radio_chk() {
+            //라디오 버튼 Name 가져오기
+            var radio_btn = document.getElementsByName("radio_btn");
+     
+            //라디오 버튼이 체크되었나 확인하기 위한 변수
+            var radio_btn_check = 0;
+            for(var i = 0; i<radio_btn.length; i++){
+                //만약 라디오 버튼이 체크가 되어있다면 true
+                if(radio_btn[i].checked==true){
+                    //라디오 버튼 값
+                    //alert(radio_btn[i].value);
+                    
+                    //{% with blood = radio_btn[i].value %}
+                    //{%endwith%}
+                    
+
+                    //라디오 버튼이 체크되면 radio_btn_check를 1로 만들어준다.
+                    radio_btn_check++;
+                }
+            }
+            
+            if(radio_btn_check==0){
+                alert("혈액형을 선택해주세요");
+                return;
+            }
+        }
+    </script>
+    <!-- 라디오 버튼 name이 같아야 중복체크가 안됩니다. -->
+    <input type="radio" name="radio_btn" value="A">A형<br/>
+    <input type="radio" name="radio_btn" value="B">B형<br/>
+    <input type="radio" name="radio_btn" value="O">O형<br/>
+    <input type="radio" name="radio_btn" value="AB">AB형<br/>
+     
+    <input type="button" value="라디오 버튼 선택" onclick="radio_chk();"/>
+    
+</body>
+{% endblock %}
